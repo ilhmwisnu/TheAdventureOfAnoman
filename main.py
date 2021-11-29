@@ -1,3 +1,4 @@
+from sys import flags, float_repr_style
 from OpenGL.GL import *
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
@@ -49,8 +50,9 @@ def anoman3() :
     glPopMatrix()
 
 def anomanAnimate(value):
-    global anoman_index
-
+    global anoman_index,isPlaying
+    if isPlaying == False:
+        return
     if anoman_index == 2:
         anoman_index = 0
     else :
@@ -60,9 +62,6 @@ def anomanAnimate(value):
 
 def anomanFrame() :
     glPushMatrix()
-    # # glScale(3.5,3.5,0)
-    # # glTranslated(50,60,0) 
-    # glTranslate(-150,-50,0)
     glColor3ub(255,255,255)
     glTranslated(0,jump_height,0)
     glBegin(GL_QUADS)
@@ -70,6 +69,18 @@ def anomanFrame() :
     glVertex2f(anomanX1,anomanY2)
     glVertex2f(anomanX2,anomanY2)
     glVertex2f(anomanX2,anomanY1)
+    glEnd()
+    glPopMatrix()
+
+def semakFrame() :
+    glPushMatrix()
+    glColor3ub(255,255,255)
+    glTranslated(deltaX,0,0)
+    glBegin(GL_QUADS)
+    glVertex2f(semakX1,semakY1) 
+    glVertex2f(semakX1,semakY2)
+    glVertex2f(semakX2,semakY2)
+    glVertex2f(semakX2,semakY1)
     glEnd()
     glPopMatrix()
 
@@ -98,14 +109,27 @@ def awan():
     glEnd()
     glPopMatrix()
 
-def jump(key,x,y) : 
-    global isJumping    
+def jump_button(key,x,y) : 
+    global isJumping,isPlaying  
+ 
     if key == GLUT_KEY_UP and isJumping is not True :
         isJumping = True
         jump_timer(0)
         print("loncat")
     if key == GLUT_KEY_UP and isJumping is True :
         pass
+
+def play_button(key,x,y) : 
+    global isPlaying 
+       
+    if key == b' ' and isPlaying == False :
+        print("play")
+        isPlaying = True
+        anomanAnimate(0)
+        semak_timer(0)
+    if key == b's' :
+        isPlaying = False
+        print('end')
 
 def jump_timer(value) :
     global jump_height
@@ -125,6 +149,16 @@ def down_timer(value) :
         return 
     glutTimerFunc(10,down_timer,0)
 
+def semak_timer(value) :
+    global deltaX,speed_semak,isPlaying
+    deltaX -= 2
+    if isPlaying == False:
+        print('selesai')
+        return
+    if deltaX < -610:
+        deltaX = 0
+    glutTimerFunc(speed_semak,semak_timer,0)
+
 def iterate():
     glViewport(0, 0, 600, 600)
     glMatrixMode(GL_PROJECTION)
@@ -141,21 +175,28 @@ def showScreen():
     awan()
     tanah()
     anomanFrame()
+    semakFrame()
     anoman_version[anoman_index]()
     glutSwapBuffers()
 
 jump_height = 0
 isJumping = False
-
-anomanX1 = -150
+anomanX1 = -160
 anomanX2 = -120
 anomanY1 = -50 + jump_height
-anomanY2 = -10 + jump_height
+anomanY2 = 0 + jump_height
+
+deltaX = 0
+semakX1 = 270 - deltaX
+semakX2 = 300 - deltaX
+semakY1 = -50 
+semakY2 = -10 
+speed_semak = 10
 
 anoman_version = [anoman1,anoman2,anoman3]
 anoman_index = 0
 
-
+isPlaying = False
 
 
 glutInit()
@@ -165,5 +206,7 @@ glutInitWindowPosition(1280//4, 0)
 wind = glutCreateWindow("The Adventure of Anoman")
 glutDisplayFunc(showScreen)
 glutIdleFunc(showScreen)
-glutSpecialFunc(jump)
+glutKeyboardFunc(play_button)
+glutSpecialFunc(jump_button)
+
 glutMainLoop()
