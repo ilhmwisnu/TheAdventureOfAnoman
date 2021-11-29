@@ -3,8 +3,10 @@ from OpenGL.GL import *
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
 
-"""Code gambar Karakter - Start"""
+print("spasi => mulai")
+print("'s' => stop")
 
+"""Code gambar Karakter - Start"""
 def anoman1() : #Gambar Karakter Anoman frame 1 (ada animasi geraknya)
     glPushMatrix()
     glColor3ub(250, 185, 135)
