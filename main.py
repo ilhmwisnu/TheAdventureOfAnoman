@@ -1,4 +1,3 @@
-from sys import flags, float_repr_style
 from OpenGL.GL import *
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
@@ -82,7 +81,8 @@ def tanah(): #Tampilan tanah
 def awan(): #Tampilan awan
     glPushMatrix()
     glScale(3.5,3.5,0)
-    glTranslated(50,60,0) 
+    glTranslated(deltaX_awan,0,0) 
+    glTranslated(100,60,0) 
     glTranslate(0,0,0)
     glColor3ub(255,255,255)
     glBegin(GL_QUADS)
@@ -125,7 +125,7 @@ def down_timer(value) : #timer jatuh abis loncat
     glutTimerFunc(10,down_timer,0)
 
 def semak_timer(value) : #timer semak berjalan
-    global deltaX,speed_semak,isPlaying,score
+    global speed_semak,isPlaying,score,deltaX
     deltaX -= 2
     if isPlaying == False:
         print('selesai')
@@ -136,6 +136,25 @@ def semak_timer(value) : #timer semak berjalan
         print(score)
         
     glutTimerFunc(speed_semak,semak_timer,0)
+
+def timerAwan(value) :
+    global deltaX_awan,isPlaying
+    if isPlaying == False :
+        return
+    if deltaX_awan < -220 :
+        deltaX_awan = 0
+    deltaX_awan -= 0.3 
+    glutTimerFunc(30,timerAwan,0)
+
+def collision(value) :
+    global anomanX1,anomanX2,anomanY1,anomanY2,jump_height
+    global semakX1,semakX2,semakY1,semakY2,deltaX,isPlaying 
+    if anomanX2  >= semakX1 + deltaX and anomanX1 <= semakX2 + deltaX and anomanY2 + jump_height >= semakY1 and anomanY1 + jump_height <= semakY2 : 
+        isPlaying = False
+        print("selesai")
+        return
+    glutTimerFunc(30,collision,0)
+
 """Timer buat animasi - End"""
 
 """Input keyboard - Start"""
@@ -159,6 +178,8 @@ def play_button(key,x,y) : #Fungsi input keyboard play
         deltaX = 0
         anomanAnimate(0)
         semak_timer(0)
+        timerAwan(0)
+        collision(0)
     if key == b's' :
         isPlaying = False
         print('end')
@@ -184,6 +205,7 @@ anoman_index = 0
 
 isPlaying = False
 score = 0
+deltaX_awan = 0
 """Variables - End"""
 
 """Fungsi Utama - Star"""
