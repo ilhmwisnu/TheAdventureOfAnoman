@@ -133,6 +133,8 @@ def semak_timer(value) : #timer semak berjalan
     if deltaX < -610:
         deltaX = 0
         score += 1
+        if score % 3 == 0 :
+            speed_semak -= 1
         print(score)
         
     glutTimerFunc(speed_semak,semak_timer,0)
@@ -169,13 +171,14 @@ def jump_button(key,x,y) : #Fungsi Input Keyboard loncat
         pass
 
 def play_button(key,x,y) : #Fungsi input keyboard play
-    global isPlaying ,score,deltaX
+    global isPlaying ,score,deltaX, speed_semak
        
     if key == b' ' and isPlaying == False :
         print("play")
         isPlaying = True
         score = 0
         deltaX = 0
+        speed_semak = 10
         anomanAnimate(0)
         semak_timer(0)
         timerAwan(0)
