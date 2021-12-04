@@ -119,19 +119,3 @@ def matahari():
         glVertex2f(cosine,sine)
     glEnd()
     glPopMatrix()
-
-
-# def awan(): #Tampilan awan
-#     glPushMatrix()
-#     glScale(3.5,3.5,0)
-#     glTranslated(10,60,0) 
-#     glTranslate(0,0,0)
-#     glColor3ub(255,255,255)
-#     glBegin(GL_QUADS)
-#     glVertex2f(-7,-5) 
-#     glVertex2f(7,-5)
-#     glVertex2f(7,5)
-#     glVertex2f(-7,5)
-#     glEnd()
-#     glPopMatrix()
-

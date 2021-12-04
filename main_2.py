@@ -12,55 +12,6 @@ print("'s' => stop")
 
 
 """Code gambar Karakter - Start"""
-def anoman1() : #Gambar Karakter Anoman frame 1 (ada animasi geraknya)
-    glPushMatrix()
-    glColor3ub(250, 185, 135)
-    glTranslated(0,jump_height,0)
-    glBegin(GL_QUADS)
-    glVertex2f(anomanX1+2,anomanY1+2) 
-    glVertex2f(anomanX1+2,anomanY2-2)
-    glVertex2f(anomanX2-2,anomanY2-2)
-    glVertex2f(anomanX2-2,anomanY1+2)
-    glEnd()
-    glPopMatrix()
-
-
-def anoman2() : #Gambar Karakter Anoman frame 2
-    glPushMatrix()
-    glColor3ub(175, 235, 96)
-    glTranslated(0,jump_height,0)
-    glBegin(GL_QUADS)
-    glVertex2f(anomanX1+2,anomanY1+2) 
-    glVertex2f(anomanX1+2,anomanY2-2)
-    glVertex2f(anomanX2-2,anomanY2-2)
-    glVertex2f(anomanX2-2,anomanY1+2)
-    glEnd()
-    glPopMatrix()
-
-def anoman3() : #Gambar Karakter Anoman frame 3
-    glPushMatrix()
-    glColor3ub(43, 76, 92)
-    glTranslated(0,jump_height,0)
-    glBegin(GL_QUADS)
-    glVertex2f(anomanX1+2,anomanY1+2) 
-    glVertex2f(anomanX1+2,anomanY2-2)
-    glVertex2f(anomanX2-2,anomanY2-2)
-    glVertex2f(anomanX2-2,anomanY1+2)
-    glEnd()
-    glPopMatrix()
-
-def anomanFrame() : #anomanFrame buat collision
-    glPushMatrix()
-    glColor3ub(255,255,255)
-    glTranslated(0,jump_height,0)
-    glBegin(GL_QUADS)
-    glVertex2f(anomanX1,anomanY1) 
-    glVertex2f(anomanX1,anomanY2)
-    glVertex2f(anomanX2,anomanY2)
-    glVertex2f(anomanX2,anomanY1)
-    glEnd()
-    glPopMatrix()
-
 
 def batu():
     glPushMatrix()
@@ -266,17 +217,884 @@ def awan_4 ():
     glEnd()
     glPopMatrix()
 
-# def semakFrame() : #buat collision semak2nya
-#     glPushMatrix()
-#     glColor3ub(255,255,255)
-#     glTranslated(deltaX,0,0)
-#     glBegin(GL_POLYGON)
-#     glVertex2f(batuX1,batuY1) 
-#     glVertex2f(batuX1,batuY2)
-#     glVertex2f(batuX2,batuY2)
-#     glVertex2f(batuX2,batuY1)
-#     glEnd()
-#     glPopMatrix()
+
+
+def anoman1():
+    #muka1
+    glPushMatrix()
+    glColor3ub(255,255,255)
+    glTranslated(10,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-160, 10)
+    glVertex2f(-140, 11)
+    glVertex2f(-131, 10)
+    glVertex2f(-123, 4)
+    glVertex2f(-120, -1)
+    glVertex2f(-120, -7)
+    glVertex2f(-124, -16)
+    glVertex2f(-123, -19)
+    glVertex2f(-125, -22)
+    glVertex2f(-135, -26)
+    glVertex2f(-143, -26)
+    glVertex2f(-147, -24)
+    glVertex2f(-149, -22)
+    glVertex2f(-152, -21)
+    glVertex2f(-156, -18)
+    glVertex2f(-156, -14)
+    glVertex2f(-158, -9)
+    glVertex2f(-158, 1)
+    glVertex2f(-160, 6)
+    glVertex2f(-158, 5)
+    glEnd()
+    glPopMatrix()
+
+    #Muka2
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(10,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-141, -2)
+    glVertex2f(-136, -3)
+    glVertex2f(-130, -8)
+    glVertex2f(-128, -4)
+    glVertex2f(-124, -3)
+    glVertex2f(-122, -7)
+    glVertex2f(-124, -14)
+    glVertex2f(-126, -16)
+    glVertex2f(-124, -18)
+    glVertex2f(-125, -21)
+    glVertex2f(-127, -23)
+    glVertex2f(-135, -25)
+    glVertex2f(-140, -25)
+    glVertex2f(-144, -22)
+    glVertex2f(-145, -19)
+    glVertex2f(-143, -17)
+    glVertex2f(-146, -14)
+    glVertex2f(-147, -8)
+    glVertex2f(-144, -4)
+    glEnd()
+    glPopMatrix()
+
+    #Telinga
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(10,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-154, -13)
+    glVertex2f(-151, -12)
+    glVertex2f(-149, -13)
+    glVertex2f(-148, -20)
+    glVertex2f(-150, -21)
+    glVertex2f(-154, -20)
+    glVertex2f(-156, -17)
+    glEnd()
+    glPopMatrix()
+
+    #mata1a
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 4   
+    glPushMatrix()
+    glTranslated(-125,jump_height,0) 
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata2a
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 2  
+    glPushMatrix()
+    glTranslated(-125,jump_height,0) 
+    glColor3ub(0, 0, 0)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata1b
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 3   
+    glPushMatrix()
+    glTranslated(-117,jump_height,0) 
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata2b
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 1  
+    glPushMatrix()
+    glTranslated(-117,jump_height,0) 
+    glColor3ub(0, 0, 28)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #badan
+    glPushMatrix()
+    glColor3ub(250,250,250)
+    glTranslated(10,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-143, -25)
+    glVertex2f(-139, -26)
+    glVertex2f(-140, -26)
+    glVertex2f(-134, -29)
+    glVertex2f(-133, -33)
+    glVertex2f(-133, -37)
+    glVertex2f(-136, -44)
+    glVertex2f(-135, -47)
+    glVertex2f(-136, -50)
+    glVertex2f(-138, -53)
+    glVertex2f(-135, -55)
+    glVertex2f(-134, -57)
+    glVertex2f(-136, -59)
+    glVertex2f(-140, -60)
+    glVertex2f(-146, -58)
+    glVertex2f(-147, -56)
+    glVertex2f(-144, -51)
+    glVertex2f(-146, -49)
+    glVertex2f(-151, -46)
+    glVertex2f(-155, -43)
+    glVertex2f(-156, -40)
+    glEnd()
+    glPopMatrix()
+
+    #kaki
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(10,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-153, -44)
+    glVertex2f(-151, -46)
+    glVertex2f(-145, -49)
+    glVertex2f(-144, -51)
+    glVertex2f(-146, -52)
+    glVertex2f(-149, -53)
+    glVertex2f(-152, -52)
+    glVertex2f(-150, -55)
+    glVertex2f(-153, -57) #F
+    glVertex2f(-156, -55)
+    glVertex2f(-159, -51)
+    glVertex2f(-158, -48)
+    glVertex2f(-157, -46)
+    glEnd()
+    glPopMatrix()
+    
+    #tangan
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(10,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-133, -35)
+    glVertex2f(-130, -37)
+    glVertex2f(-129, -38)
+    glVertex2f(-129, -40)
+    glVertex2f(-131, -42)
+    glVertex2f(-133, -43)
+    glVertex2f(-135, -42)
+    glVertex2f(-134, -41)
+    glVertex2f(-133, -37)
+    glEnd()
+    glPopMatrix()
+
+    #tangan depan
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(10,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-149, -27)
+    glVertex2f(-145, -26)
+    glVertex2f(-140, -28)
+    glVertex2f(-139, -31)
+    glVertex2f(-141, -32)
+    glVertex2f(-146, -34)
+    glVertex2f(-148, -35)
+    glVertex2f(-151, -39)
+    glVertex2f(-153, -40)
+    glVertex2f(-156, -40)
+    glVertex2f(-158, -40)
+    glVertex2f(-157, -33)
+    glVertex2f(-154, -29)
+    glEnd()
+    glPopMatrix()
+
+    #ekor
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(10,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-165, -34)
+    glVertex2f(-160, -38)
+    glVertex2f(-155, -41)
+    glVertex2f(-155, -43)
+    glVertex2f(-162, -41)
+    glVertex2f(-168, -36)
+    glEnd()
+    glPopMatrix()
+
+
+def anoman2():
+    #muka1
+    glPushMatrix()
+    glColor3ub(255,255,255)
+    glTranslated(15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-160, 10)
+    glVertex2f(-140, 11)
+    glVertex2f(-131, 10)
+    glVertex2f(-123, 4)
+    glVertex2f(-120, -1)
+    glVertex2f(-120, -7)
+    glVertex2f(-124, -16)
+    glVertex2f(-123, -19)
+    glVertex2f(-125, -22)
+    glVertex2f(-135, -26)
+    glVertex2f(-143, -26)
+    glVertex2f(-147, -24)
+    glVertex2f(-149, -22)
+    glVertex2f(-152, -21)
+    glVertex2f(-156, -18)
+    glVertex2f(-156, -14)
+    glVertex2f(-158, -9)
+    glVertex2f(-158, 1)
+    glVertex2f(-160, 6)
+    glVertex2f(-158, 5)
+    glEnd()
+    glPopMatrix()
+
+    #Muka2
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-141, -2)
+    glVertex2f(-136, -3)
+    glVertex2f(-130, -8)
+    glVertex2f(-128, -4)
+    glVertex2f(-124, -3)
+    glVertex2f(-122, -7)
+    glVertex2f(-124, -14)
+    glVertex2f(-126, -16)
+    glVertex2f(-124, -18)
+    glVertex2f(-125, -21)
+    glVertex2f(-127, -23)
+    glVertex2f(-135, -25)
+    glVertex2f(-140, -25)
+    glVertex2f(-144, -22)
+    glVertex2f(-145, -19)
+    glVertex2f(-143, -17)
+    glVertex2f(-146, -14)
+    glVertex2f(-147, -8)
+    glVertex2f(-144, -4)
+    glEnd()
+    glPopMatrix()
+
+    #Telinga
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-154, -13)
+    glVertex2f(-151, -12)
+    glVertex2f(-149, -13)
+    glVertex2f(-148, -20)
+    glVertex2f(-150, -21)
+    glVertex2f(-154, -20)
+    glVertex2f(-156, -17)
+    glEnd()
+    glPopMatrix()
+
+    #mata1a
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 4   
+    glPushMatrix()
+    glTranslated(-120,jump_height,0) 
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata2a
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 2  
+    glPushMatrix()
+    glTranslated(-120,jump_height,0) 
+    glColor3ub(0, 0, 0)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata1b
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 3   
+    glPushMatrix()
+    glTranslated(-112,jump_height,0) 
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata2b
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 1  
+    glPushMatrix()
+    glTranslated(-112,jump_height,0) 
+    glColor3ub(0, 0, 28)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+
+    #badan
+    glPushMatrix()
+    glColor3ub(250,250,250)
+    glTranslated(-15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-109, -26)
+    glVertex2f(-103, -26)
+    glVertex2f(-100, -31)
+    glVertex2f(-101, -38)
+    glVertex2f(-103, -42)
+    glVertex2f(-104, -44)
+    glVertex2f(-109, -48)
+    glVertex2f(-111, -52)
+    glVertex2f(-115, -55)
+    glVertex2f(-113, -56)
+    glVertex2f(-113, -58)
+    glVertex2f(-120, -60)
+    glVertex2f(-124, -58)
+    glVertex2f(-125, -54)
+    glVertex2f(-119, -49)
+    glVertex2f(-123, -45)
+    glVertex2f(-124, -39)
+    glVertex2f(-123, -36)
+    glEnd()
+    glPopMatrix()
+
+    #tangan
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(-15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-118, -28)
+    glVertex2f(-113, -26)
+    glVertex2f(-107, -28)
+    glVertex2f(-108, -30)
+    glVertex2f(-113, -33)
+    glVertex2f(-115, -35)
+    glVertex2f(-110, -35)
+    glVertex2f(-108, -37)
+    glVertex2f(-114, -43)
+    glVertex2f(-120, -41)
+    glVertex2f(-122, -32)
+    glVertex2f(-123, -37)
+    glEnd()
+    glPopMatrix()
+    
+    #KAKI
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(-15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-109, -42)
+    glVertex2f(-101, -44)
+    glVertex2f(-101, -47)
+    glVertex2f(-103, -50)
+    glVertex2f(-101, -51)
+    glVertex2f(-100, -53)
+    glVertex2f(-102, -55)
+    glVertex2f(-105, -56)
+    glVertex2f(-107, -55)
+    glVertex2f(-112, -53)
+    glVertex2f(-110, -49)
+    glVertex2f(-109, -48)
+    glVertex2f(-104, -44)
+    glEnd()
+    glPopMatrix()
+
+    #ekor
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(20,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-165, -34)
+    glVertex2f(-160, -38)
+    glVertex2f(-155, -41)
+    glVertex2f(-155, -43)
+    glVertex2f(-162, -41)
+    glVertex2f(-168, -36)
+    glEnd()
+    glPopMatrix()
+
+
+def anoman3():
+    #muka1
+    glPushMatrix()
+    glColor3ub(255,255,255)
+    glTranslated(25,8+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-160, 10)
+    glVertex2f(-140, 11)
+    glVertex2f(-131, 10)
+    glVertex2f(-123, 4)
+    glVertex2f(-120, -1)
+    glVertex2f(-120, -7)
+    glVertex2f(-124, -16)
+    glVertex2f(-123, -19)
+    glVertex2f(-125, -22)
+    glVertex2f(-135, -26)
+    glVertex2f(-143, -26)
+    glVertex2f(-147, -24)
+    glVertex2f(-149, -22)
+    glVertex2f(-152, -21)
+    glVertex2f(-156, -18)
+    glVertex2f(-156, -14)
+    glVertex2f(-158, -9)
+    glVertex2f(-158, 1)
+    glVertex2f(-160, 6)
+    glVertex2f(-158, 5)
+    glEnd()
+    glPopMatrix()
+
+    #Muka2
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(25,8+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-141, -2)
+    glVertex2f(-136, -3)
+    glVertex2f(-130, -8)
+    glVertex2f(-128, -4)
+    glVertex2f(-124, -3)
+    glVertex2f(-122, -7)
+    glVertex2f(-124, -14)
+    glVertex2f(-126, -16)
+    glVertex2f(-124, -18)
+    glVertex2f(-125, -21)
+    glVertex2f(-127, -23)
+    glVertex2f(-135, -25)
+    glVertex2f(-140, -25)
+    glVertex2f(-144, -22)
+    glVertex2f(-145, -19)
+    glVertex2f(-143, -17)
+    glVertex2f(-146, -14)
+    glVertex2f(-147, -8)
+    glVertex2f(-144, -4)
+    glEnd()
+    glPopMatrix()
+
+    #Telinga
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(25,8+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-154, -13)
+    glVertex2f(-151, -12)
+    glVertex2f(-149, -13)
+    glVertex2f(-148, -20)
+    glVertex2f(-150, -21)
+    glVertex2f(-154, -20)
+    glVertex2f(-156, -17)
+    glEnd()
+    glPopMatrix()
+
+    #mata1a
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 4   
+    glPushMatrix()
+    glTranslated(-113,jump_height-2,0) 
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata2a
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 2  
+    glPushMatrix()
+    glTranslated(-113,jump_height-2,0) 
+    glColor3ub(0, 0, 0)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata1b
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 3   
+    glPushMatrix()
+    glTranslated(-105,jump_height-2,0) 
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata2b
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 1  
+    glPushMatrix()
+    glTranslated(-105,jump_height-2,0) 
+    glColor3ub(0, 0, 28)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+
+
+    #badan
+    glPushMatrix()
+    glColor3ub(250,250,250)
+    glTranslated(-50,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-72, -28)
+    glVertex2f(-62, -29)
+    glVertex2f(-61, -35)
+    glVertex2f(-61, -42)
+    glVertex2f(-64, -48)
+    glVertex2f(-68, -50)
+    glVertex2f(-72, -51)
+    glVertex2f(-74, -52)
+    glVertex2f(-78, -52)
+    glVertex2f(-77, -57)
+    glVertex2f(-80, -59)
+    glVertex2f(-84, -58)
+    glVertex2f(-86, -55)
+    glVertex2f(-85, -51)
+    glVertex2f(-83, -47)
+    glVertex2f(-82, -42)
+    glVertex2f(-82, -38)
+    glVertex2f(-79, -33)
+    glEnd()
+    glPopMatrix()
+
+    #tangan
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(-50,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-72, -30)
+    glVertex2f(-70, -30)
+    glVertex2f(-65, -36)
+    glVertex2f(-61, -35)
+    glVertex2f(-58, -36)
+    glVertex2f(-57, -39)
+    glVertex2f(-61, -43)
+    glVertex2f(-71, -40)
+    glVertex2f(-75, -36)
+    glVertex2f(-74, -32)
+    glEnd()
+    glPopMatrix()
+    
+    #KAKI
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(-50,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-61, -43)
+    glVertex2f(-58, -45)
+    glVertex2f(-58, -49)
+    glVertex2f(-61, -51)
+    glVertex2f(-57, -53)
+    glVertex2f(-59, -57)
+    glVertex2f(-64, -58)
+    glVertex2f(-68, -56)
+    glVertex2f(-69, -53)
+    glVertex2f(-67, -50)
+    glVertex2f(-64, -48)
+    glEnd()
+    glPopMatrix()
+
+    #ekor
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(25,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-165, -34)
+    glVertex2f(-160, -38)
+    glVertex2f(-155, -41)
+    glVertex2f(-155, -43)
+    glVertex2f(-162, -41)
+    glVertex2f(-168, -36)
+    glEnd()
+    glPopMatrix()
+
+
+def anoman4():
+    #muka1
+    glPushMatrix()
+    glColor3ub(255,255,255)
+    glTranslated(15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-160, 10)
+    glVertex2f(-140, 11)
+    glVertex2f(-131, 10)
+    glVertex2f(-123, 4)
+    glVertex2f(-120, -1)
+    glVertex2f(-120, -7)
+    glVertex2f(-124, -16)
+    glVertex2f(-123, -19)
+    glVertex2f(-125, -22)
+    glVertex2f(-135, -26)
+    glVertex2f(-143, -26)
+    glVertex2f(-147, -24)
+    glVertex2f(-149, -22)
+    glVertex2f(-152, -21)
+    glVertex2f(-156, -18)
+    glVertex2f(-156, -14)
+    glVertex2f(-158, -9)
+    glVertex2f(-158, 1)
+    glVertex2f(-160, 6)
+    glVertex2f(-158, 5)
+    glEnd()
+    glPopMatrix()
+
+    #Muka2
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-141, -2)
+    glVertex2f(-136, -3)
+    glVertex2f(-130, -8)
+    glVertex2f(-128, -4)
+    glVertex2f(-124, -3)
+    glVertex2f(-122, -7)
+    glVertex2f(-124, -14)
+    glVertex2f(-126, -16)
+    glVertex2f(-124, -18)
+    glVertex2f(-125, -21)
+    glVertex2f(-127, -23)
+    glVertex2f(-135, -25)
+    glVertex2f(-140, -25)
+    glVertex2f(-144, -22)
+    glVertex2f(-145, -19)
+    glVertex2f(-143, -17)
+    glVertex2f(-146, -14)
+    glVertex2f(-147, -8)
+    glVertex2f(-144, -4)
+    glEnd()
+    glPopMatrix()
+
+    #Telinga
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-154, -13)
+    glVertex2f(-151, -12)
+    glVertex2f(-149, -13)
+    glVertex2f(-148, -20)
+    glVertex2f(-150, -21)
+    glVertex2f(-154, -20)
+    glVertex2f(-156, -17)
+    glEnd()
+    glPopMatrix()
+
+    
+    #mata1a
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 4   
+    glPushMatrix()
+    glTranslated(-120,jump_height,0) 
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata2a
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 2  
+    glPushMatrix()
+    glTranslated(-120,jump_height,0) 
+    glColor3ub(0, 0, 0)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata1b
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 3   
+    glPushMatrix()
+    glTranslated(-112,jump_height,0) 
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+    #mata2b
+    posx, posy = 0,0    
+    sides = 32    
+    radius = 1  
+    glPushMatrix()
+    glTranslated(-112,jump_height,0) 
+    glColor3ub(0, 0, 28)
+    glBegin(GL_POLYGON)    
+    for i in range(100):    
+        cosine= radius * math.cos(i*2* math.pi/sides) + posx    
+        sine  = radius * math.sin(i*2* math.pi/sides) + posy    
+        glVertex2f(cosine,sine)
+    glEnd()
+    glPopMatrix()
+
+
+    #badan
+    glPushMatrix()
+    glColor3ub(250,250,250)
+    glTranslated(-15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-109, -26)
+    glVertex2f(-103, -26)
+    glVertex2f(-100, -31)
+    glVertex2f(-101, -38)
+    glVertex2f(-103, -42)
+    glVertex2f(-104, -44)
+    glVertex2f(-109, -48)
+    glVertex2f(-111, -52)
+    glVertex2f(-115, -55)
+    glVertex2f(-113, -56)
+    glVertex2f(-113, -58)
+    glVertex2f(-120, -60)
+    glVertex2f(-124, -58)
+    glVertex2f(-125, -54)
+    glVertex2f(-119, -49)
+    glVertex2f(-123, -45)
+    glVertex2f(-124, -39)
+    glVertex2f(-123, -36)
+    glEnd()
+    glPopMatrix()
+
+    
+
+    #tangan
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(-15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-118, -28)
+    glVertex2f(-113, -26)
+    glVertex2f(-107, -28)
+    glVertex2f(-108, -30)
+    glVertex2f(-113, -33)
+    glVertex2f(-115, -35)
+    glVertex2f(-110, -35)
+    glVertex2f(-108, -37)
+    glVertex2f(-114, -43)
+    glVertex2f(-120, -41)
+    glVertex2f(-122, -32)
+    glVertex2f(-123, -37)
+    glEnd()
+    glPopMatrix()
+    
+    #KAKI
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(-15,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-109, -42)
+    glVertex2f(-101, -44)
+    glVertex2f(-101, -47)
+    glVertex2f(-103, -50)
+    glVertex2f(-101, -51)
+    glVertex2f(-100, -53)
+    glVertex2f(-102, -55)
+    glVertex2f(-105, -56)
+    glVertex2f(-107, -55)
+    glVertex2f(-112, -53)
+    glVertex2f(-110, -49)
+    glVertex2f(-109, -48)
+    glVertex2f(-104, -44)
+    glEnd()
+    glPopMatrix()
+
+    #ekor
+    glPushMatrix()
+    glColor3ub(230,230,230)
+    glTranslated(20,10+jump_height,0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-165, -34)
+    glVertex2f(-160, -38)
+    glVertex2f(-155, -41)
+    glVertex2f(-155, -43)
+    glVertex2f(-162, -41)
+    glVertex2f(-168, -36)
+    glEnd()
+    glPopMatrix()
+
+
 
 
 """Code gambar Karakter - end"""
@@ -286,11 +1104,11 @@ def anomanAnimate(value): #buat ganti frame anomannya
     global anoman_index,isPlaying
     if isPlaying == False:
         return
-    if anoman_index == 2:
+    if anoman_index == 3:
         anoman_index = 0
     else :
         anoman_index +=1
-    glutTimerFunc(1000, anomanAnimate,0)
+    glutTimerFunc(200, anomanAnimate,0)
 
 def jump_timer(value) : #timer loncat keatas
     global jump_height
@@ -376,7 +1194,7 @@ def play_button(key,x,y) : #Fungsi input keyboard play
 """Variables - Start"""
 jump_height = 0
 isJumping = False
-anomanX1 = -160
+anomanX1 = -150
 anomanX2 = -120
 anomanY1 = -50 + jump_height
 anomanY2 = 0 + jump_height
@@ -388,7 +1206,7 @@ batuY1 = -50
 batuY2 = -10 
 speed_batu = 10
 
-anoman_version = [anoman1,anoman2,anoman3]
+anoman_version = [anoman1,anoman2,anoman3,anoman4]
 anoman_index = 0
 
 isPlaying = False
@@ -421,10 +1239,10 @@ def showScreen():
     awan_4()
     batu()
     batuGrad()
-    anomanFrame()
+    # anomanFrame()
     # semakFrame()
-    # anoman_version[anoman_index]()
-    
+    anoman_version[anoman_index]()
+    # char_1()
     glutSwapBuffers()
 
 glutInit()
