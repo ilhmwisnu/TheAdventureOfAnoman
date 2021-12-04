@@ -65,7 +65,7 @@ def anomanFrame() : #anomanFrame buat collision
 def batu():
     glPushMatrix()
     glColor3ub(64,64,64)
-    glTranslated(deltaX,0,0)
+    glTranslated(deltaX - 35,0,0)
     # glTranslated(-60, 100,0)
     glBegin(GL_POLYGON)
     glVertex2f(310, -50)
@@ -103,8 +103,7 @@ def batu():
 def batuGrad():
     glPushMatrix()
     glColor3ub(170,170,170)
-    glTranslated(deltaX,0,0)
-    # glTranslated(-60, 100,0)
+    glTranslated(deltaX - 35,0,0)
     glBegin(GL_POLYGON)
     glVertex2f(319, -10)
     glVertex2f(325, -10)
@@ -131,7 +130,7 @@ def batuGrad():
     glVertex2f(329, -31)
     glVertex2f(330, -27)
     glVertex2f(327, -25)
-    glVertex2f(330, -21)
+    glVertex2f(330, -21) 
     glVertex2f(327, -18)
     glVertex2f(327, -14)
     glVertex2f(322, -14)
@@ -139,21 +138,148 @@ def batuGrad():
     glPopMatrix()
 
 
-def semakFrame() : #buat collision semak2nya
+def awan_1 ():
     glPushMatrix()
-    glColor3ub(255,255,255)
-    glTranslated(deltaX,0,0)
+    glColor3ub(255, 255, 255)
+    glTranslated(deltaX_awan,0,0) 
     glBegin(GL_POLYGON)
-    glVertex2f(semakX1,semakY1) 
-    glVertex2f(semakX1,semakY2)
-    glVertex2f(semakX2,semakY2)
-    glVertex2f(semakX2,semakY1)
+    glVertex2f(185, 210) #J
+    glVertex2f(182, 214) #I
+    glVertex2f(183, 218) #H
+    glVertex2f(185, 221) #G
+    glVertex2f(190, 224) #F
+    glVertex2f(194, 223) #E 
+    glVertex2f(196, 226) #D
+    glVertex2f(200, 228) #C
+    glVertex2f(205, 228) #B
+    glVertex2f(208, 232) #A 
+    glVertex2f(213, 234) #Z
+    glVertex2f(218, 234) #W
+    glVertex2f(223, 232) #V
+    glVertex2f(227, 229) #U
+    glVertex2f(229, 225) #T
+    glVertex2f(234, 226) #S
+    glVertex2f(238, 223) #R
+    glVertex2f(240, 220) #Q
+    glVertex2f(241, 216) #P
+    glVertex2f(238, 210) #O
+    glVertex2f(233, 208) #N
+    glVertex2f(211, 208) #K
+    glVertex2f(189, 208) #M
     glEnd()
     glPopMatrix()
 
 
-"""Code gambar Karakter - end"""
+def awan_2 ():
+    glPushMatrix()
+    glTranslated(-160,10,0) 
+    glColor3ub(255, 255, 255)
+    glTranslated(deltaX_awan,0,0) 
+    glBegin(GL_POLYGON)
+    glVertex2f(185, 210) #J
+    glVertex2f(182, 214) #I
+    glVertex2f(183, 218) #H
+    glVertex2f(185, 221) #G
+    glVertex2f(190, 224) #F
+    glVertex2f(194, 223) #E 
+    glVertex2f(196, 226) #D
+    glVertex2f(200, 228) #C
+    glVertex2f(205, 228) #B
+    glVertex2f(208, 232) #A 
+    glVertex2f(213, 234) #Z
+    glVertex2f(218, 234) #W
+    glVertex2f(223, 232) #V
+    glVertex2f(227, 229) #U
+    glVertex2f(229, 225) #T
+    glVertex2f(234, 226) #S
+    glVertex2f(238, 223) #R
+    glVertex2f(240, 220) #Q
+    glVertex2f(241, 216) #P
+    glVertex2f(238, 210) #O
+    glVertex2f(233, 208) #N
+    glVertex2f(211, 208) #K
+    glVertex2f(189, 208) #M
+    glEnd()
+    glPopMatrix()
 
+def awan_3 ():
+    glPushMatrix()
+    glTranslated(-310,0,0) 
+    glColor3ub(255, 255, 255)
+    glTranslated(deltaX_awan,0,0) 
+    glBegin(GL_POLYGON)
+    glVertex2f(185, 210) #J
+    glVertex2f(182, 214) #I
+    glVertex2f(183, 218) #H
+    glVertex2f(185, 221) #G
+    glVertex2f(190, 224) #F
+    glVertex2f(194, 223) #E 
+    glVertex2f(196, 226) #D
+    glVertex2f(200, 228) #C
+    glVertex2f(205, 228) #B
+    glVertex2f(208, 232) #A 
+    glVertex2f(213, 234) #Z
+    glVertex2f(218, 234) #W
+    glVertex2f(223, 232) #V
+    glVertex2f(227, 229) #U
+    glVertex2f(229, 225) #T
+    glVertex2f(234, 226) #S
+    glVertex2f(238, 223) #R
+    glVertex2f(240, 220) #Q
+    glVertex2f(241, 216) #P
+    glVertex2f(238, 210) #O
+    glVertex2f(233, 208) #N
+    glVertex2f(211, 208) #K
+    glVertex2f(189, 208) #M
+    glEnd()
+    glPopMatrix()
+
+def awan_4 ():
+    glPushMatrix()
+    glTranslated(-430,30,0) 
+    glColor3ub(255, 255, 255)
+    glTranslated(deltaX_awan,0,0) 
+    glBegin(GL_POLYGON)
+    glVertex2f(185, 210) #J
+    glVertex2f(182, 214) #I
+    glVertex2f(183, 218) #H
+    glVertex2f(185, 221) #G
+    glVertex2f(190, 224) #F
+    glVertex2f(194, 223) #E 
+    glVertex2f(196, 226) #D
+    glVertex2f(200, 228) #C
+    glVertex2f(205, 228) #B
+    glVertex2f(208, 232) #A 
+    glVertex2f(213, 234) #Z
+    glVertex2f(218, 234) #W
+    glVertex2f(223, 232) #V
+    glVertex2f(227, 229) #U
+    glVertex2f(229, 225) #T
+    glVertex2f(234, 226) #S
+    glVertex2f(238, 223) #R
+    glVertex2f(240, 220) #Q
+    glVertex2f(241, 216) #P
+    glVertex2f(238, 210) #O
+    glVertex2f(233, 208) #N
+    glVertex2f(211, 208) #K
+    glVertex2f(189, 208) #M
+    glEnd()
+    glPopMatrix()
+
+# def semakFrame() : #buat collision semak2nya
+#     glPushMatrix()
+#     glColor3ub(255,255,255)
+#     glTranslated(deltaX,0,0)
+#     glBegin(GL_POLYGON)
+#     glVertex2f(batuX1,batuY1) 
+#     glVertex2f(batuX1,batuY2)
+#     glVertex2f(batuX2,batuY2)
+#     glVertex2f(batuX2,batuY1)
+#     glEnd()
+#     glPopMatrix()
+
+
+"""Code gambar Karakter - end"""
 
 """Timer buat animasi - Start"""
 def anomanAnimate(value): #buat ganti frame anomannya
@@ -185,7 +311,7 @@ def down_timer(value) : #timer jatuh abis loncat
     glutTimerFunc(10,down_timer,0)
 
 def semak_timer(value) : #timer semak berjalan
-    global deltaX,speed_semak,isPlaying,score
+    global speed_batu,isPlaying,score,deltaX
     deltaX -= 2
     if isPlaying == False:
         print('selesai')
@@ -193,9 +319,30 @@ def semak_timer(value) : #timer semak berjalan
     if deltaX < -610:
         deltaX = 0
         score += 1
+        if score % 3 == 0 :
+            speed_batu -= 1
         print(score)
         
-    glutTimerFunc(speed_semak,semak_timer,0)
+    glutTimerFunc(speed_batu,semak_timer,0)
+
+def timerAwan(value) :
+    global deltaX_awan,isPlaying
+    if isPlaying == False :
+        return
+    if deltaX_awan < -220 :
+        deltaX_awan = 0
+    deltaX_awan -= 0.3 
+    glutTimerFunc(30,timerAwan,0)
+
+def collision(value) :
+    global anomanX1,anomanX2,anomanY1,anomanY2,jump_height
+    global batuX1,batuX2,batuY1,batuY2,deltaX,isPlaying 
+    if anomanX2  >= batuX1 + deltaX and anomanX1 <= batuX2 + deltaX and anomanY2 + jump_height >= batuY1 and anomanY1 + jump_height <= batuY2 : 
+        isPlaying = False
+        print("selesai")
+        return
+    glutTimerFunc(30,collision,0)
+
 """Timer buat animasi - End"""
 
 """Input keyboard - Start"""
@@ -210,15 +357,17 @@ def jump_button(key,x,y) : #Fungsi Input Keyboard loncat
         pass
 
 def play_button(key,x,y) : #Fungsi input keyboard play
-    global isPlaying ,score,deltaX
-    
+    global isPlaying ,score,deltaX, speed_batu
     if key == b' ' and isPlaying == False :
         print("play")
         isPlaying = True
         score = 0
         deltaX = 0
+        speed_batu = 10
         anomanAnimate(0)
         semak_timer(0)
+        timerAwan(0)
+        collision(0)
     if key == b's' :
         isPlaying = False
         print('end')
@@ -233,20 +382,19 @@ anomanY1 = -50 + jump_height
 anomanY2 = 0 + jump_height
 
 deltaX = 0
-semakX1 = 270 - deltaX
-semakX2 = 300 - deltaX
-semakY1 = -50 
-semakY2 = -10 
-speed_semak = 10
+batuX1 = 270 - deltaX
+batuX2 = 300 - deltaX
+batuY1 = -50 
+batuY2 = -10 
+speed_batu = 10
 
 anoman_version = [anoman1,anoman2,anoman3]
 anoman_index = 0
 
 isPlaying = False
 score = 0
+deltaX_awan = 0
 """Variables - End"""
-
-"""Fungsi Utama - Star"""
 def iterate():
     glViewport(0, 0, 600, 600)
     glMatrixMode(GL_PROJECTION)
@@ -266,9 +414,6 @@ def showScreen():
     gunung2()
     tanah()
     rumput()
-    anomanFrame()
-    # semakFrame()
-    anoman_version[anoman_index]()
     matahari()
     awan_1()
     awan_2() 
@@ -276,6 +421,10 @@ def showScreen():
     awan_4()
     batu()
     batuGrad()
+    anomanFrame()
+    # semakFrame()
+    # anoman_version[anoman_index]()
+    
     glutSwapBuffers()
 
 glutInit()
