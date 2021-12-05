@@ -1129,16 +1129,18 @@ def down_timer(value) : #timer jatuh abis loncat
     glutTimerFunc(10,down_timer,0)
 
 def semak_timer(value) : #timer semak berjalan
-    global speed_batu,isPlaying,score,deltaX
-    deltaX -= 2
+    global speed_batu,isPlaying,score,deltaX,deltaXlevel2
+    deltaX -= 2 - deltaXlevel2
     if isPlaying == False:
         print('selesai')
         return
     if deltaX < -610:
         deltaX = 0
         score += 1
-        if score % 3 == 0 :
+        if score % 3 == 0 and score < 25 :
             speed_batu -= 1
+        elif score % 6 == 0 and score > 24 :
+            deltaXlevel2 += 1
         print(score)
         
     glutTimerFunc(speed_batu,semak_timer,0)
@@ -1200,6 +1202,7 @@ anomanY1 = -50 + jump_height
 anomanY2 = 0 + jump_height
 
 deltaX = 0
+deltaXlevel2 = 0
 batuX1 = 270 - deltaX
 batuX2 = 300 - deltaX
 batuY1 = -50 
