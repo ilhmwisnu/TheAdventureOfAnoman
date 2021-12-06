@@ -93,7 +93,9 @@ def batuGrad():
 def awan_1 ():
     glPushMatrix()
     glColor3ub(255, 255, 255)
-    glTranslated(deltaX_awan,0,0) 
+    glScale(2,2,0)
+    glTranslated(0,-100,0) 
+    glTranslated(deltaX_awan1,0,0) 
     glBegin(GL_POLYGON)
     glVertex2f(185, 210) #J
     glVertex2f(182, 214) #I
@@ -123,10 +125,11 @@ def awan_1 ():
 
 
 def awan_2 ():
-    glPushMatrix()
-    glTranslated(-160,10,0) 
+    glPushMatrix() 
     glColor3ub(255, 255, 255)
-    glTranslated(deltaX_awan,0,0) 
+    glScale(1.5,1.5,0)
+    glTranslated(40,-150,0) 
+    glTranslated(deltaX_awan2,0,0) 
     glBegin(GL_POLYGON)
     glVertex2f(185, 210) #J
     glVertex2f(182, 214) #I
@@ -156,9 +159,10 @@ def awan_2 ():
 
 def awan_3 ():
     glPushMatrix()
-    glTranslated(-310,0,0) 
+    glTranslated(120,-85,0) 
+    glScale(1.2,1.2,0)
     glColor3ub(255, 255, 255)
-    glTranslated(deltaX_awan,0,0) 
+    glTranslated(deltaX_awan3,0,0) 
     glBegin(GL_POLYGON)
     glVertex2f(185, 210) #J
     glVertex2f(182, 214) #I
@@ -188,9 +192,9 @@ def awan_3 ():
 
 def awan_4 ():
     glPushMatrix()
-    glTranslated(-430,30,0) 
+    glTranslated(130,-100,0) 
     glColor3ub(255, 255, 255)
-    glTranslated(deltaX_awan,0,0) 
+    glTranslated(deltaX_awan4,0,0) 
     glBegin(GL_POLYGON)
     glVertex2f(185, 210) #J
     glVertex2f(182, 214) #I
@@ -1159,14 +1163,41 @@ def batu_timer(value) : #timer semak berjalan
         
     glutTimerFunc(speed_batu,batu_timer,0)
 
-def timerAwan(value) :
-    global deltaX_awan,isPlaying
+def timerAwan1(value) :
+    global deltaX_awan1,isPlaying
     if isPlaying == False :
         return
-    if deltaX_awan < -220 :
-        deltaX_awan = 0
-    deltaX_awan -= 0.3 
-    glutTimerFunc(30,timerAwan,0)
+    if deltaX_awan1 < -220 - 400  :
+        deltaX_awan1 = 0
+    deltaX_awan1 -= 0.3 
+    glutTimerFunc(10,timerAwan1,0)
+
+def timerAwan2(value) :
+    global deltaX_awan2,isPlaying
+    if isPlaying == False :
+        return
+    if deltaX_awan2 < -220 - 260 :
+        deltaX_awan2 = 0
+    deltaX_awan2 -= 0.3 
+    glutTimerFunc(20,timerAwan2,0)
+
+def timerAwan3(value) :
+    global deltaX_awan3,isPlaying
+    if isPlaying == False :
+        return
+    if deltaX_awan3 < -220 -480 :
+        deltaX_awan3 = 0
+    deltaX_awan3 -= 0.3 
+    glutTimerFunc(25,timerAwan3,0)
+
+def timerAwan4(value) :
+    global deltaX_awan4,isPlaying
+    if isPlaying == False :
+        return
+    if deltaX_awan4 < -220 :
+        deltaX_awan4 = 0
+    deltaX_awan4 -= 0.3 
+    glutTimerFunc(33,timerAwan4,0)
 
 def collision(value) :
     global anomanX1,anomanX2,anomanY1,anomanY2,jump_height
@@ -1200,7 +1231,10 @@ def play_button(key,x,y) : #Fungsi input keyboard play
         speed_batu = 10
         anomanAnimate(0)
         batu_timer(0)
-        timerAwan(0)
+        timerAwan1(0)
+        timerAwan2(0) 
+        timerAwan3(0)
+        timerAwan4(0)
         collision(0)
     if key == b's' :
         isPlaying = False
@@ -1228,7 +1262,10 @@ anoman_index = 0
 
 isPlaying = False
 score = 0
-deltaX_awan = 0
+deltaX_awan1 = -90
+deltaX_awan2 = -220
+deltaX_awan3 = -450
+deltaX_awan4 = 0
 """Variables - End"""
 def iterate():
     glViewport(0, 0, 600, 600)
