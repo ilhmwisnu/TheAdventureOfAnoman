@@ -2,6 +2,7 @@ from sys import flags, float_repr_style
 from OpenGL.GL import *
 from OpenGL.GLUT import *
 from OpenGL.GLU import *
+from OpenGL.GLUT.freeglut import *
 from bg import *
 import math
 
@@ -1094,7 +1095,20 @@ def anoman4():
     glEnd()
     glPopMatrix()
 
-
+def skor_display(skor):
+    
+    glColor3f(0,0,0)
+    glRasterPos( 250,270)
+    glColor3ub(255,255,255)
+    glBegin(GL_POLYGON)
+    glVertex2f(240, 293)
+    glVertex2f(280, 293)
+    glVertex2f(280, 264)
+    glVertex2f(240, 264)
+    glEnd()
+    for i in str(skor):
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, ord(i))
+    # glEnd()
 
 
 """Code gambar Karakter - end"""
@@ -1128,7 +1142,7 @@ def down_timer(value) : #timer jatuh abis loncat
         return 
     glutTimerFunc(10,down_timer,0)
 
-def semak_timer(value) : #timer semak berjalan
+def batu_timer(value) : #timer semak berjalan
     global speed_batu,isPlaying,score,deltaX,deltaXlevel2
     deltaX -= 2 - deltaXlevel2
     if isPlaying == False:
@@ -1143,7 +1157,7 @@ def semak_timer(value) : #timer semak berjalan
             deltaXlevel2 += 1
         print(score)
         
-    glutTimerFunc(speed_batu,semak_timer,0)
+    glutTimerFunc(speed_batu,batu_timer,0)
 
 def timerAwan(value) :
     global deltaX_awan,isPlaying
@@ -1185,7 +1199,7 @@ def play_button(key,x,y) : #Fungsi input keyboard play
         deltaX = 0
         speed_batu = 10
         anomanAnimate(0)
-        semak_timer(0)
+        batu_timer(0)
         timerAwan(0)
         collision(0)
     if key == b's' :
@@ -1242,10 +1256,8 @@ def showScreen():
     awan_4()
     batu()
     batuGrad()
-    # anomanFrame()
-    # semakFrame()
     anoman_version[anoman_index]()
-    # char_1()
+    skor_display(score)
     glutSwapBuffers()
 
 glutInit()
