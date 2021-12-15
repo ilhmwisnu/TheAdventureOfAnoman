@@ -52,6 +52,7 @@ def batu():
     glEnd()
     glPopMatrix()
 
+
 def batuGrad():
     glPushMatrix()
     glColor3ub(170,170,170)
@@ -93,7 +94,7 @@ def batuGrad():
 def awan_1 ():
     glPushMatrix()
     glColor3ub(255, 255, 255)
-    glScale(2,2,0)
+    glScale(1,1,0)
     glTranslated(0,-100,0) 
     glTranslated(deltaX_awan1,0,0) 
     glBegin(GL_POLYGON)
@@ -157,6 +158,7 @@ def awan_2 ():
     glEnd()
     glPopMatrix()
 
+
 def awan_3 ():
     glPushMatrix()
     glTranslated(120,-85,0) 
@@ -190,6 +192,7 @@ def awan_3 ():
     glEnd()
     glPopMatrix()
 
+
 def awan_4 ():
     glPushMatrix()
     glTranslated(130,-100,0) 
@@ -221,7 +224,6 @@ def awan_4 ():
     glVertex2f(189, 208) #M
     glEnd()
     glPopMatrix()
-
 
 
 def anoman1():
@@ -1099,7 +1101,8 @@ def anoman4():
     glEnd()
     glPopMatrix()
 
-def skor_display(skor):
+
+def score_display():
     
     glColor3f(0,0,0)
     glRasterPos( 250,270)
@@ -1110,11 +1113,140 @@ def skor_display(skor):
     glVertex2f(280, 264)
     glVertex2f(240, 264)
     glEnd()
-    for i in str(skor):
+    for i in str(score):
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, ord(i))
     # glEnd()
 
+def guide():
+    guideWord = 'How To Play'
+    startWord = 'Press SPACE to start'
+    stopWord = 'Press S to stop'
+    jumpWord = 'Press UP ARROW to jump'
 
+    #start
+    glPushMatrix()
+    glColor3f(0,0,0)
+    glRasterPos( -105,0)
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-150, 100) 
+    glVertex2f(150, 100) 
+    glVertex2f(150, -10)
+    glVertex2f(-150, -10) 
+    glEnd()
+    for i in str(startWord):
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, ord(i))
+    glPopMatrix()
+
+    #Stop
+    glPushMatrix()
+    glColor3f(0,0,0)
+    glRasterPos( -105,-30)
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-150, -10) 
+    glVertex2f(150, -10) 
+    glVertex2f(150, -50)
+    glVertex2f(-150, -50) 
+    glEnd()
+    for i in str(stopWord):
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, ord(i))
+    glPopMatrix()
+
+    #jump
+    glPushMatrix()
+    glColor3f(0,0,0)
+    glRasterPos( -105,-60)
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-150, -50) 
+    glVertex2f(150, -50) 
+    glVertex2f(150, -100)
+    glVertex2f(-150, -100) 
+    glEnd()
+    for i in str(jumpWord):
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, ord(i))
+    glPopMatrix()
+
+    #header
+    glPushMatrix()
+    glColor3f(255,255,255)
+    glRasterPos( -65,65)
+    glColor3ub(0, 0, 0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-150, 100) 
+    glVertex2f(150, 100) 
+    glVertex2f(150, 50)
+    glVertex2f(-150, 50) 
+    glEnd()
+    for i in str(guideWord):
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, ord(i))
+    glPopMatrix()
+
+
+def end_display():
+    endWord = 'Game Over'
+    scoreWord = 'Your Score:'
+    contWord = 'Press SPACE to Try Again'
+
+    #your score
+    glPushMatrix()
+    glColor3f(0,0,0)
+    glRasterPos( -50,10)
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-150, 100) 
+    glVertex2f(150, 100) 
+    glVertex2f(150, -10)
+    glVertex2f(-150, -10) 
+    glEnd()
+    for i in str(scoreWord):
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, ord(i))
+    glPopMatrix()
+    #final score
+    glPushMatrix()
+    glColor3f(0,0,0)
+    glRasterPos( -10,-40)
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-150, -10) 
+    glVertex2f(150, -10) 
+    glVertex2f(150, -50)
+    glVertex2f(-150, -50) 
+    glEnd()
+    for i in str(finalScore):
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, ord(i))
+    glPopMatrix()
+
+    #try again
+    glPushMatrix()
+    glColor3f(0,0,0)
+    glRasterPos( -70,-80)
+    glColor3ub(255, 255, 255)
+    glBegin(GL_POLYGON)
+    glVertex2f(-150, -50) 
+    glVertex2f(150, -50) 
+    glVertex2f(150, -100)
+    glVertex2f(-150, -100) 
+    glEnd()
+    for i in str(contWord):
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, ord(i))
+    glPopMatrix()
+
+    #Game Over
+    glPushMatrix()
+    glColor3f(255,255,255)
+    glRasterPos( -60,65)
+    glColor3ub(0, 0, 0)
+    glBegin(GL_POLYGON)
+    glVertex2f(-150, 100) 
+    glVertex2f(150, 100) 
+    glVertex2f(150, 50)
+    glVertex2f(-150, 50) 
+    glEnd()
+    for i in str(endWord):
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, ord(i))
+    glPopMatrix()
 """Code gambar Karakter - end"""
 
 """Timer buat animasi - Start"""
@@ -1201,9 +1333,11 @@ def timerAwan4(value) :
 
 def collision(value) :
     global anomanX1,anomanX2,anomanY1,anomanY2,jump_height
-    global batuX1,batuX2,batuY1,batuY2,deltaX,isPlaying 
+    global batuX1,batuX2,batuY1,batuY2,deltaX,isPlaying, isStopped , finalScore 
     if anomanX2  >= batuX1 + deltaX and anomanX1 <= batuX2 + deltaX and anomanY2 + jump_height >= batuY1 and anomanY1 + jump_height <= batuY2 : 
+        finalScore = score
         isPlaying = False
+        isStopped = True
         print("selesai")
         return
     glutTimerFunc(30,collision,0)
@@ -1222,10 +1356,12 @@ def jump_button(key,x,y) : #Fungsi Input Keyboard loncat
         pass
 
 def play_button(key,x,y) : #Fungsi input keyboard play
-    global isPlaying ,score,deltaX, speed_batu
+    global isStopped, isStarted, isPlaying ,score,deltaX, speed_batu, finalScore
     if key == b' ' and isPlaying == False :
         print("play")
+        isStarted = True
         isPlaying = True
+        isStopped = False
         score = 0
         deltaX = 0
         speed_batu = 10
@@ -1237,7 +1373,9 @@ def play_button(key,x,y) : #Fungsi input keyboard play
         timerAwan4(0)
         collision(0)
     if key == b's' :
+        finalScore = score
         isPlaying = False
+        isStopped = True
         print('end')
 """Input keyboard - End"""
 
@@ -1262,10 +1400,14 @@ anoman_index = 0
 
 isPlaying = False
 score = 0
+finalScore = 0
 deltaX_awan1 = -90
 deltaX_awan2 = -220
 deltaX_awan3 = -450
 deltaX_awan4 = 0
+
+isStarted = False
+isStopped = False
 """Variables - End"""
 def iterate():
     glViewport(0, 0, 600, 600)
@@ -1280,7 +1422,6 @@ def showScreen():
     glLoadIdentity()
     glClearColor(1,1,1,1)
     iterate()
-    # awan()
     background()
     gunung1()
     gunung2()
@@ -1294,7 +1435,11 @@ def showScreen():
     batu()
     batuGrad()
     anoman_version[anoman_index]()
-    skor_display(score)
+    score_display()
+    if not isStarted :
+        guide()
+    if isStopped:
+        end_display()
     glutSwapBuffers()
 
 glutInit()
