@@ -94,8 +94,8 @@ def batuGrad():
 def awan_1 ():
     glPushMatrix()
     glColor3ub(255, 255, 255)
-    glScale(1,1,0)
-    glTranslated(0,-100,0) 
+    glScale(1.5,1.5,0)
+    glTranslated(50,-100,0) 
     glTranslated(deltaX_awan1,0,0) 
     glBegin(GL_POLYGON)
     glVertex2f(185, 210) #J
@@ -128,7 +128,7 @@ def awan_1 ():
 def awan_2 ():
     glPushMatrix() 
     glColor3ub(255, 255, 255)
-    glScale(1.5,1.5,0)
+    glScale(1.3,1.3,0)
     glTranslated(40,-150,0) 
     glTranslated(deltaX_awan2,0,0) 
     glBegin(GL_POLYGON)
@@ -195,7 +195,7 @@ def awan_3 ():
 
 def awan_4 ():
     glPushMatrix()
-    glTranslated(130,-100,0) 
+    glTranslated(130,-80,0) 
     glColor3ub(255, 255, 255)
     glTranslated(deltaX_awan4,0,0) 
     glBegin(GL_POLYGON)
@@ -1280,7 +1280,7 @@ def down_timer(value) : #timer jatuh abis loncat
 
 def batu_timer(value) : #timer semak berjalan
     global speed_batu,isPlaying,score,deltaX,deltaXlevel2
-    deltaX -= 2 - deltaXlevel2
+    deltaX -= (2 + deltaXlevel2)
     if isPlaying == False:
         print('selesai')
         return
@@ -1289,7 +1289,7 @@ def batu_timer(value) : #timer semak berjalan
         score += 1
         if score % 3 == 0 and score < 25 :
             speed_batu -= 1
-        elif score % 6 == 0 and score > 24 :
+        elif score % 10 == 0 and score > 24 :
             deltaXlevel2 += 1
         print(score)
         
@@ -1326,7 +1326,7 @@ def timerAwan4(value) :
     global deltaX_awan4,isPlaying
     if isPlaying == False :
         return
-    if deltaX_awan4 < -220 :
+    if deltaX_awan4 < -700 :
         deltaX_awan4 = 0
     deltaX_awan4 -= 0.3 
     glutTimerFunc(33,timerAwan4,0)
