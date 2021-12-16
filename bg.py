@@ -5,45 +5,6 @@ from OpenGL.GLU import *
 from bg import *
 import math
 
-
-
-# def test():
-#     glPushMatrix()
-#     glColor3ub(0,255,25)
-#     glBegin(GL_POLYGON)
-#     glVertex2f(-150, -53)
-#     glVertex2f(-147, -59)
-#     glVertex2f(-144, -64)
-#     glVertex2f(-140, -70)
-#     glVertex2f(-134, -75)
-#     glVertex2f(-130, -78)
-#     glVertex2f(-125, -81)
-#     glVertex2f(-118, -82)
-#     glVertex2f(-122, -90)
-#     glVertex2f(-123, -92)
-#     glVertex2f(-122, -95)
-#     glVertex2f(-125, -99)
-#     glVertex2f(-125, -102)
-#     glVertex2f(-120, -106)
-#     glVertex2f(-114, -103)
-#     glVertex2f(-116, -98)
-#     glVertex2f(-113, -91)
-#     glVertex2f(-113, -99)
-#     glVertex2f(-112, -102)
-#     glVertex2f(-111, -104)
-#     glVertex2f(-109, -105)
-#     glVertex2f(-110, -113)
-#     glVertex2f(-111, -118)
-#     glVertex2f(-110, -120)
-#     glVertex2f(-99, -120)
-#     glVertex2f(-99, -116)
-#     glVertex2f(-100, -114)
-#     glVertex2f(-102, -113)
-#     glVertex2f(-103, -110)
-#     glVertex2f(-104, -106)
-#     glEnd()
-#     glPopMatrix()
-
 def background():
     glPushMatrix()
     glColor3ub(135, 206, 235)
